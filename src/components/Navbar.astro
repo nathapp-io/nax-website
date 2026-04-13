@@ -1,0 +1,61 @@
+---
+const NAV_LINKS = [
+  { label: 'Docs', href: 'https://github.com/nathapp-io/nax/tree/main/docs' },
+  { label: 'GitHub', href: 'https://github.com/nathapp-io/nax' },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: transparent;"
+>
+  <nav class="max-w-[900px] mx-auto px-6 h-14 flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="font-mono font-semibold text-[15px] text-white tracking-tight hover:opacity-70 transition-opacity"
+    >
+      nax
+    </a>
+
+    <!-- Links -->
+    <div class="flex items-center gap-6">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          target={link.href.startsWith('http') ? '_blank' : undefined}
+          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          class="text-[13px] text-[#888] hover:text-white transition-colors font-medium"
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <a
+        href="https://www.npmjs.com/package/@nathapp/nax"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-[11px] px-2.5 py-1 rounded border border-[#2a2a2a] text-[#666] hover:border-[#444] hover:text-[#aaa] transition-all"
+      >
+        npm
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar!.style.background = 'rgba(0, 0, 0, 0.85)';
+      navbar!.style.backdropFilter = 'blur(12px)';
+      navbar!.style.borderBottom = '1px solid #1a1a1a';
+    } else {
+      navbar!.style.background = 'transparent';
+      navbar!.style.backdropFilter = 'none';
+      navbar!.style.borderBottom = 'none';
+    }
+  }, { passive: true });
+</script>

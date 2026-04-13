@@ -1,0 +1,73 @@
+---
+const FEATURES = [
+  {
+    label: 'AGENT-AGNOSTIC',
+    title: 'Works with any agent',
+    desc: 'Claude Code, Codex, Gemini CLI, or any ACP-compatible agent. nax drives them all through the same disciplined loop.',
+  },
+  {
+    label: 'TDD-ENFORCED',
+    title: 'Tests first, always',
+    desc: 'Acceptance tests must be RED before implementation starts. No shortcuts, no skipped steps — the loop enforces it.',
+  },
+  {
+    label: 'LOOP UNTIL DONE',
+    title: 'Verify, retry, escalate',
+    desc: 'Failed verify? Retry. Still failing? Escalate to a more powerful model tier. Loop until every test passes.',
+  },
+  {
+    label: 'MONOREPO-READY',
+    title: 'Per-package everything',
+    desc: 'Per-package config, per-package test commands, per-story working directories. Full monorepo isolation out of the box.',
+  },
+  {
+    label: 'SEMANTIC REVIEW',
+    title: 'LLM-powered quality gates',
+    desc: 'Behavioral review against story acceptance criteria. Catches stubs, placeholders, and out-of-scope changes before they merge.',
+  },
+  {
+    label: 'ADVERSARIAL REVIEW',
+    title: 'Probes edge cases',
+    desc: 'A second LLM pass that attacks the implementation — probing input handling, error paths, and abandoned implementations.',
+  },
+  {
+    label: 'LANGUAGE-AWARE',
+    title: 'Auto-detects your stack',
+    desc: 'Detects Go, Rust, Python, TypeScript from manifest files. Adapts test commands, mocking patterns, and context per language.',
+  },
+  {
+    label: 'EXTENSIBLE',
+    title: 'Plugin system',
+    desc: 'Hook into routing, review, reporting, and post-run actions. Drop a plugin into .nax/plugins/ and it is picked up automatically.',
+  },
+];
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-[900px] mx-auto">
+    <!-- Section header -->
+    <div class="mb-12 reveal">
+      <p class="font-mono text-[11px] text-[#444] tracking-widest uppercase mb-3">Why nax</p>
+      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-white">
+        Built around discipline,<br />not convenience.
+      </h2>
+    </div>
+
+    <!-- Features grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#141414] border border-[#141414] rounded-xl overflow-hidden stagger">
+      {FEATURES.map((f) => (
+        <div class="bg-[#000] p-6 hover:bg-[#0a0a0a] transition-colors group">
+          <p class="font-mono text-[10px] text-[#3a3a3a] tracking-widest uppercase mb-3 group-hover:text-[#555] transition-colors">
+            {f.label}
+          </p>
+          <h3 class="font-semibold text-[15px] text-white mb-2 tracking-tight">
+            {f.title}
+          </h3>
+          <p class="text-[13px] text-[#666] leading-[1.65]">
+            {f.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

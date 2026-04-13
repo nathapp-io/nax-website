@@ -1,0 +1,69 @@
+---
+const LINKS = [
+  {
+    group: 'Project',
+    items: [
+      { label: 'GitHub', href: 'https://github.com/nathapp-io/nax' },
+      { label: 'npm', href: 'https://www.npmjs.com/package/@nathapp/nax' },
+      { label: 'Releases', href: 'https://github.com/nathapp-io/nax/releases' },
+    ],
+  },
+  {
+    group: 'Docs',
+    items: [
+      { label: 'CLI Reference', href: 'https://github.com/nathapp-io/nax/blob/main/docs/guides/cli-reference.md' },
+      { label: 'Configuration', href: 'https://github.com/nathapp-io/nax/blob/main/docs/guides/configuration.md' },
+      { label: 'Guides', href: 'https://github.com/nathapp-io/nax/tree/main/docs/guides' },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-[#111] py-16 px-6">
+  <div class="max-w-[900px] mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between gap-10">
+      <!-- Brand -->
+      <div>
+        <p class="font-mono font-semibold text-[15px] text-white mb-2">nax</p>
+        <p class="text-[13px] text-[#444] max-w-[220px] leading-relaxed">
+          AI Coding Agent Orchestrator.<br />MIT License.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex gap-12">
+        {LINKS.map((group) => (
+          <div>
+            <p class="font-mono text-[10px] text-[#333] tracking-widest uppercase mb-4">{group.group}</p>
+            <ul class="flex flex-col gap-2.5">
+              {group.items.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[13px] text-[#555] hover:text-[#aaa] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-6 border-t border-[#0f0f0f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <p class="font-mono text-[11px] text-[#333]">
+        &copy; {new Date().getFullYear()} nathapp. MIT License.
+      </p>
+      <p class="font-mono text-[11px] text-[#252525]">
+        inspired by <a href="https://github.com/ArvorCo/Relentless" target="_blank" rel="noopener noreferrer" class="hover:text-[#444] transition-colors">Relentless</a>
+        &nbsp;·&nbsp;
+        ACP by <a href="https://github.com/openclaw/acpx" target="_blank" rel="noopener noreferrer" class="hover:text-[#444] transition-colors">acpx</a>
+      </p>
+    </div>
+  </div>
+</footer>

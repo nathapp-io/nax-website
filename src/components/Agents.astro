@@ -1,0 +1,63 @@
+---
+const AGENTS = [
+  {
+    name: 'Claude Code',
+    badge: 'ACP · CLI',
+    desc: 'Full ACP support with multi-turn continuity, token-cost tracking, and structured JSON-RPC. Recommended.',
+    recommended: true,
+  },
+  {
+    name: 'Codex / OpenCode',
+    badge: 'CLI',
+    desc: 'OpenAI Codex CLI adapter. Pass --agent opencode to activate.',
+    recommended: false,
+  },
+  {
+    name: 'Gemini CLI',
+    badge: 'CLI',
+    desc: "Google's Gemini CLI adapter. Pass --agent gemini to activate.",
+    recommended: false,
+  },
+  {
+    name: 'Any ACP agent',
+    badge: 'ACP',
+    desc: 'Any agent implementing the Agent Client Protocol connects via acpx. Structured sessions, cost alignment, multi-session continuity.',
+    recommended: false,
+  },
+];
+---
+
+<section class="py-24 px-6 border-t border-[#111]">
+  <div class="max-w-[900px] mx-auto">
+    <!-- Header -->
+    <div class="mb-12 reveal">
+      <p class="font-mono text-[11px] text-[#444] tracking-widest uppercase mb-3">Agents</p>
+      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-white">
+        Bring your own agent.
+      </h2>
+      <p class="text-[15px] text-[#666] mt-3 max-w-[440px] leading-relaxed">
+        nax doesn't care which model you use. Swap agents without touching your workflow.
+      </p>
+    </div>
+
+    <!-- Agent cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 stagger">
+      {AGENTS.map((agent) => (
+        <div class={`relative p-5 rounded-xl border transition-colors ${agent.recommended ? 'border-[#2a2a2a] bg-[#0a0a0a]' : 'border-[#1a1a1a] bg-[#060606] hover:border-[#222]'}`}>
+          {agent.recommended && (
+            <div class="absolute top-3 right-3">
+              <span class="font-mono text-[10px] text-[#444] border border-[#222] rounded px-1.5 py-0.5">recommended</span>
+            </div>
+          )}
+          <div class="flex items-start gap-3 mb-3">
+            <div>
+              <h3 class="font-semibold text-[14px] text-white tracking-tight">{agent.name}</h3>
+              <span class="font-mono text-[10px] text-[#444]">{agent.badge}</span>
+            </div>
+          </div>
+          <p class="text-[13px] text-[#666] leading-[1.6]">{agent.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
