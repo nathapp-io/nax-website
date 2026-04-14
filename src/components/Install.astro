@@ -12,7 +12,16 @@ nax run -f my-feature --plan --from spec.md`;
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
       <!-- Left: Install -->
       <div class="reveal">
-        <p class="font-mono text-[11px] text-[#bbb] tracking-widest uppercase mb-4">Install</p>
+        <div class="flex items-center gap-3 mb-4">
+          <p class="font-mono text-[11px] text-[#bbb] tracking-widest uppercase">Install</p>
+          <a
+            id="nax-version-badge"
+            href="https://github.com/nathapp-io/nax/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden font-mono text-[10px] text-[#aaa] bg-[#f5f5f5] border border-[#e5e5e5] px-2 py-0.5 rounded hover:border-[#ccc] transition-colors"
+          ></a>
+        </div>
         <p class="text-[15px] text-[#999] mb-6 leading-relaxed">
           Requires Bun 1.3.7+ or Node 22+.<br />Git must be initialized in your project.
         </p>
@@ -59,3 +68,54 @@ nax run -f my-feature --plan --from spec.md`;
     </div>
   </div>
 </section>
+
+<script>
+  const CACHE_KEY = 'nax-version-cache';
+  const CACHE_TTL = 60 * 60 * 1000; // 1 hour (mirrors server-side cache)
+
+  function getCached(): string | null {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      const { version, ts } = JSON.parse(raw) as { version: string; ts: number };
+      return Date.now() - ts < CACHE_TTL ? version : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function setCached(version: string): void {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ version, ts: Date.now() }));
+    } catch { /* ignore quota errors */ }
+  }
+
+  function renderVersion(version: string): void {
+    const badge = document.getElementById('nax-version-badge');
+    if (!badge) return;
+    badge.textContent = version;
+    badge.classList.remove('hidden');
+  }
+
+  async function loadVersion(): Promise<void> {
+    const cached = getCached();
+    if (cached) {
+      renderVersion(cached);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/version');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const { version } = await res.json() as { version: string | null };
+      if (version) {
+        setCached(version);
+        renderVersion(version);
+      }
+    } catch {
+      // Non-critical — badge stays hidden if all else fails
+    }
+  }
+
+  loadVersion();
+</script>
