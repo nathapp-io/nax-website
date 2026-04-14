@@ -49,12 +49,12 @@ const STEPS = [
 ];
 ---
 
-<section class="py-24 px-6 border-t border-[#111]">
+<section class="py-24 px-6 border-t border-[#eee]">
   <div class="max-w-[900px] mx-auto">
     <!-- Header -->
     <div class="mb-12 reveal">
-      <p class="font-mono text-[11px] text-[#444] tracking-widest uppercase mb-3">How it works</p>
-      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-white">
+      <p class="font-mono text-[11px] text-[#bbb] tracking-widest uppercase mb-3">How it works</p>
+      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-black">
         A loop with teeth.
       </h2>
     </div>
@@ -62,27 +62,27 @@ const STEPS = [
     <!-- Steps -->
     <div class="relative stagger">
       <!-- Vertical line -->
-      <div class="absolute left-[27px] top-4 bottom-4 w-px bg-[#1a1a1a] hidden sm:block"></div>
+      <div class="absolute left-[27px] top-4 bottom-4 w-px bg-[#e5e5e5] hidden sm:block"></div>
 
       <div class="flex flex-col gap-0">
         {STEPS.map((step, i) => (
           <div class="relative flex gap-6 group">
             <!-- Step number -->
             <div class="relative z-10 flex-shrink-0 w-14 h-14 flex items-center justify-center">
-              <div class="w-8 h-8 rounded-full border border-[#222] bg-[#000] flex items-center justify-center group-hover:border-[#333] transition-colors">
-                <span class="font-mono text-[10px] text-[#444] group-hover:text-[#666] transition-colors">{step.n}</span>
+              <div class="w-8 h-8 rounded-full border border-[#ddd] bg-[#fff] flex items-center justify-center group-hover:border-[#ccc] transition-colors">
+                <span class="font-mono text-[10px] text-[#bbb] group-hover:text-[#999] transition-colors">{step.n}</span>
               </div>
             </div>
 
             <!-- Content -->
             <div class={`flex-1 pb-8 ${i === STEPS.length - 1 ? 'pb-0' : ''}`}>
               <div class="flex items-center gap-2 mb-1 pt-3">
-                <h3 class="font-semibold text-[14px] text-white tracking-tight">{step.name}</h3>
+                <h3 class="font-semibold text-[14px] text-black tracking-tight">{step.name}</h3>
                 {step.optional && (
-                  <span class="font-mono text-[10px] text-[#333] border border-[#1f1f1f] rounded px-1.5 py-0.5">optional</span>
+                  <span class="font-mono text-[10px] text-[#ccc] border border-[#e0e0e0] rounded px-1.5 py-0.5">optional</span>
                 )}
               </div>
-              <p class="text-[13px] text-[#666] leading-[1.65] max-w-[540px]">{step.desc}</p>
+              <p class="text-[13px] text-[#999] leading-[1.65] max-w-[540px]">{step.desc}</p>
             </div>
           </div>
         ))}

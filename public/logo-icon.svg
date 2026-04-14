@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" fill="none">
+  <!-- C-bracket arms stop at x=12; ">" starts at x=15 — 3px gap keeps them visually separate -->
+  <path d="M12,3 L3,3 L3,19 L12,19"
+    stroke="black" stroke-width="1.7"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15,5 L20,11 L15,17"
+    stroke="black" stroke-width="1.7"
+    stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

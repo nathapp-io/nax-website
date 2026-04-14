@@ -16,34 +16,34 @@ const PIPELINE_STEPS = [
   <!-- Subtle grid background -->
   <div
     class="pointer-events-none absolute inset-0"
-    style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px;"
+    style="background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 60px 60px;"
   ></div>
 
   <!-- Radial glow -->
   <div
     class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-[0.06]"
-    style="background: radial-gradient(ellipse at center, #fff 0%, transparent 70%);"
+    style="background: radial-gradient(ellipse at center, #000 0%, transparent 70%);"
   ></div>
 
   <div class="relative z-10 max-w-[860px] w-full mx-auto text-center">
     <!-- Badge -->
-    <div class="inline-flex items-center gap-2 mb-8 px-3 py-1 rounded-full border border-[#2a2a2a] bg-[#0f0f0f]">
-      <span class="w-1.5 h-1.5 rounded-full bg-white opacity-60"></span>
-      <span class="font-mono text-[11px] text-[#666] tracking-widest uppercase">orchestrator · not an agent</span>
+    <div class="inline-flex items-center gap-2 mb-8 px-3 py-1 rounded-full border border-[#d5d5d5] bg-[#f0f0f0]">
+      <span class="w-1.5 h-1.5 rounded-full bg-black opacity-60"></span>
+      <span class="font-mono text-[11px] text-[#999] tracking-widest uppercase">orchestrator · not an agent</span>
     </div>
 
     <!-- Headline -->
-    <h1 class="font-sans font-extrabold text-[52px] leading-[1.1] tracking-[-0.03em] text-white mb-5 sm:text-[64px]">
+    <h1 class="font-sans font-extrabold text-[52px] leading-[1.1] tracking-[-0.03em] text-black mb-5 sm:text-[64px]">
       AI Coding Agent<br />Orchestrator
     </h1>
 
     <!-- Tagline -->
-    <p class="font-mono text-[16px] text-[#555] tracking-tight mb-5">
+    <p class="font-mono text-[16px] text-[#aaa] tracking-tight mb-5">
       — loops until done.
     </p>
 
     <!-- Subtext -->
-    <p class="text-[17px] text-[#888] leading-[1.7] max-w-[520px] mx-auto mb-10">
+    <p class="text-[17px] text-[#777] leading-[1.7] max-w-[520px] mx-auto mb-10">
       Give it a spec. It writes tests, implements code, verifies
       quality, and retries until everything passes.
     </p>
@@ -53,21 +53,21 @@ const PIPELINE_STEPS = [
       <!-- Install command + copy -->
       <button
         id="install-cmd"
-        class="group flex items-center gap-3 px-4 py-2.5 rounded-lg border border-[#222] bg-[#0a0a0a] hover:border-[#333] transition-colors cursor-pointer"
+        class="group flex items-center gap-3 px-4 py-2.5 rounded-lg border border-[#ddd] bg-[#f5f5f5] hover:border-[#ccc] transition-colors cursor-pointer"
         title="Click to copy"
         type="button"
       >
-        <span class="font-mono text-[13px] text-[#777]">$</span>
-        <span class="font-mono text-[13px] text-[#ccc]">npm install -g @nathapp/nax</span>
+        <span class="font-mono text-[13px] text-[#888]">$</span>
+        <span class="font-mono text-[13px] text-[#333]">npm install -g @nathapp/nax</span>
         <!-- Copy icon -->
-        <span id="icon-copy" class="ml-1 text-[#444] group-hover:text-[#666] transition-colors">
+        <span id="icon-copy" class="ml-1 text-[#bbb] group-hover:text-[#999] transition-colors">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="5" y="5" width="8" height="8" rx="1.5"/>
             <path d="M3 9H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1"/>
           </svg>
         </span>
         <!-- Check icon (hidden by default) -->
-        <span id="icon-check" class="ml-1 text-white hidden">
+        <span id="icon-check" class="ml-1 text-black hidden">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M2 7l3.5 3.5L12 3"/>
           </svg>
@@ -79,7 +79,7 @@ const PIPELINE_STEPS = [
         href="https://github.com/nathapp-io/nax"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#2a2a2a] text-[#666] hover:text-[#aaa] hover:border-[#3a3a3a] transition-all text-[13px] font-medium"
+        class="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#d5d5d5] text-[#999] hover:text-[#555] hover:border-[#c5c5c5] transition-all text-[13px] font-medium"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
@@ -92,16 +92,16 @@ const PIPELINE_STEPS = [
     <div class="flex flex-wrap items-center justify-center gap-x-0 gap-y-2 font-mono text-[11px]">
       {PIPELINE_STEPS.map((step, i) => (
         <div class="flex items-center">
-          <span class="px-2 py-0.5 rounded text-[#444] hover:text-[#777] transition-colors cursor-default">
+          <span class="px-2 py-0.5 rounded text-[#bbb] hover:text-[#888] transition-colors cursor-default">
             {step}
           </span>
           {i < PIPELINE_STEPS.length - 1 && (
-            <span class="text-[#222] mx-0.5">→</span>
+            <span class="text-[#ddd] mx-0.5">→</span>
           )}
         </div>
       ))}
-      <span class="text-[#222] mx-1">→</span>
-      <span class="px-2 py-0.5 rounded text-[#444] cursor-default">✓</span>
+      <span class="text-[#ddd] mx-1">→</span>
+      <span class="px-2 py-0.5 rounded text-[#bbb] cursor-default">✓</span>
     </div>
   </div>
 </section>

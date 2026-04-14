@@ -47,23 +47,23 @@ const FEATURES = [
   <div class="max-w-[900px] mx-auto">
     <!-- Section header -->
     <div class="mb-12 reveal">
-      <p class="font-mono text-[11px] text-[#444] tracking-widest uppercase mb-3">Why nax</p>
-      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-white">
+      <p class="font-mono text-[11px] text-[#bbb] tracking-widest uppercase mb-3">Why nax</p>
+      <h2 class="font-sans font-bold text-[32px] leading-tight tracking-[-0.02em] text-black">
         Built around discipline,<br />not convenience.
       </h2>
     </div>
 
     <!-- Features grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#141414] border border-[#141414] rounded-xl overflow-hidden stagger">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#ebebeb] border border-[#ebebeb] rounded-xl overflow-hidden stagger">
       {FEATURES.map((f) => (
-        <div class="bg-[#000] p-6 hover:bg-[#0a0a0a] transition-colors group">
-          <p class="font-mono text-[10px] text-[#3a3a3a] tracking-widest uppercase mb-3 group-hover:text-[#555] transition-colors">
+        <div class="bg-[#fff] p-6 hover:bg-[#f5f5f5] transition-colors group">
+          <p class="font-mono text-[10px] text-[#c5c5c5] tracking-widest uppercase mb-3 group-hover:text-[#aaa] transition-colors">
             {f.label}
           </p>
-          <h3 class="font-semibold text-[15px] text-white mb-2 tracking-tight">
+          <h3 class="font-semibold text-[15px] text-black mb-2 tracking-tight">
             {f.title}
           </h3>
-          <p class="text-[13px] text-[#666] leading-[1.65]">
+          <p class="text-[13px] text-[#999] leading-[1.65]">
             {f.desc}
           </p>
         </div>
