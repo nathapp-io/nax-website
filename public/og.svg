@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <!-- subtle grid -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#000" stroke-width="0.5" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- C-bracket -->
+  <path d="M120,240 L60,240 L60,390 L120,390"
+    stroke="black" stroke-width="12"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- > chevron -->
+  <path d="M145,258 L190,315 L145,372"
+    stroke="black" stroke-width="12"
+    stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- nax wordmark -->
+  <text x="220" y="345"
+    dominant-baseline="central"
+    font-family="'Courier New', monospace"
+    font-size="120" font-weight="700"
+    fill="black" letter-spacing="-4">nax</text>
+
+  <!-- tagline -->
+  <text x="60" y="470"
+    font-family="'Courier New', monospace"
+    font-size="24" fill="#aaaaaa" letter-spacing="0">
+    AI Coding Agent Orchestrator — loops until done.
+  </text>
+
+  <!-- domain -->
+  <text x="60" y="570"
+    font-family="'Courier New', monospace"
+    font-size="20" fill="#cccccc">www.nathapp.io</text>
+</svg>
