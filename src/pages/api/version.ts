@@ -24,6 +24,7 @@ export const GET: APIRoute = async () => {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
+        'X-Robots-Tag': 'noindex, nofollow',
         // Vercel edge CDN caches for 1 hour; serves stale for up to 24h while revalidating
         'Cache-Control': 's-maxage=3600, stale-while-revalidate=86400',
       },
@@ -33,6 +34,7 @@ export const GET: APIRoute = async () => {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
+        'X-Robots-Tag': 'noindex, nofollow',
         // Short cache on errors so we recover quickly when GitHub is back
         'Cache-Control': 's-maxage=60, stale-while-revalidate=300',
       },
